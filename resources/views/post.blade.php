@@ -97,7 +97,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8 mb-5">
-            <form action="#" class="p-5 bg-white">
+            <form action="{{url('/jobpost')}}" method="get" class="p-5 bg-white">
+              @csrf
               <!-- Judul -->
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
@@ -167,6 +168,11 @@
                 </div>
               </div>
               <!-- Deskripsi-->
+              <!-- Hidden-->
+              <input type="hidden" name="cp" value="<?php echo Session::get('notelp');?>">
+              <input type="hidden" name="email" value="<?php echo Session::get('email');?>">
+              <input type="hidden" name="iduser" value="<?php echo Session::get('id');?>">
+              <!-- Hidden-->
               <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
               <?php if (Session::get('akses') == 'admin') {
                 ?>

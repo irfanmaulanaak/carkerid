@@ -24,5 +24,7 @@ Route::get('/register', 'authController@getRegister');
 Route::post('/registerPost', 'authController@postRegister');
 Route::get('/logout', 'authController@logout');
 
+Route::get('/jobpost', 'jobController@postJob');
+
 
 
