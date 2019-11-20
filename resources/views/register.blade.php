@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-	<title>Creative Colorlib SignUp Form</title>
+	<title>Registration - CarkerID</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="application/x-javascript">
@@ -29,12 +29,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
+	<!-- Header -->
+	<header class="site-navbar py-1" role="banner">
+		<div class="container">
+			<div class="row align-items-center">
+
+				<div class="col-6 col-xl-2">
+					<h1 class="mb-0"><a href="{{ url('/home')}}" class="text-black h2 mb-0">Carker<strong>ID</strong></a></h1>
+				</div>
+				<div class="col-6 col-xl-2 text-right d-block">
+
+					<div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+				</div>
+
+			</div>
+		</div>
+	</header>
+	<!-- akhir header-->
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
-		<h1>Creative SignUp Form</h1>
+		<h1>Registration</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
+				<form action="{{url('/registerPost')}}" method="post">
 					@csrf
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
@@ -49,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Don't have an Account? <a href="#"> Login Now!</a></p>
+				<p>Don't have an Account? <a href="{{url('/login')}}"> Login Now!</a></p>
 			</div>
 		</div>
 		<!-- copyright -->

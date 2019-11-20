@@ -49,7 +49,7 @@ class authController extends Controller
         return view('register');
     }
     public function postRegister(Request $request){
-        
+        echo 'Register';
     }
 
 }

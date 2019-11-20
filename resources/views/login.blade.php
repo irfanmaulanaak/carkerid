@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Login V14</title>
+	<title>Login CarkerID</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -30,12 +30,42 @@
 </head>
 
 <body>
+	<!-- Header -->
+	<header class="site-navbar py-1" role="banner">
+		<div class="container">
+			<div class="row align-items-center">
+
+				<div class="col-6 col-xl-2">
+					<h1 class="mb-0"><a href="{{ url('/home')}}" class="text-black h2 mb-0">Carker<strong>ID</strong></a></h1>
+				</div>
+
+				<div class="col-10 col-xl-10 d-none d-xl-block">
+					<nav class="site-navigation text-right" role="navigation">
+						<ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+							<li><a href="{{url('/register')}}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Register</span></a></li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="col-6 col-xl-2 text-right d-block">
+					<div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- akhir header-->
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form action="{{ url('/loginPost')}}" method ="POST" class="login100-form validate-form flex-sb flex-w">
-				@csrf
+				@if ($message = Session::get('alert'))
+				<div class="alert alert-warning alert-block">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<strong>{{$message}}</strong>
+				</div>
+				@endif
+				<form action="{{ url('/loginPost')}}" method="POST" class="login100-form validate-form flex-sb flex-w">
+					@csrf
 					<span class="login100-form-title p-b-32">
 						Account Login
 					</span>
@@ -77,11 +107,6 @@
 						<button type="submit" class="login100-form-btn">
 							Login
 						</button>
-					</div>
-					<div class="container-login100-form-btn">
-						<a  href="{{url('/register')}}"> <button type="button" class="login100-form-btn">
-							Register
-						</button> </a>
 					</div>
 				</form>
 			</div>
