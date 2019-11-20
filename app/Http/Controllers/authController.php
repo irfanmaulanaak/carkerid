@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\modelUser;
+use Session;
+use Response;
 use Auth;
 use SebastianBergmann\Environment\Console;
 
@@ -24,24 +26,23 @@ class authController extends Controller
 
         if ($admin) {
             echo '<script>console.log($admin)</script>';
-            // echo $admin;
-            echo 'Password 1= + ';
-            echo $admin->password;
-            echo '\nPassword 2= + ';
-            echo $password;
+            $a = 123456;
+            $b = 1;
+            echo $admin->password == $password;
+            echo ($password == $admin->$password) == 1;
+        
 
-            if ($password == $admin->$password) {
+            if ($admin->password == $password) {
                 echo '<script>console.log("Password ketemu")</script>';
 
                 Session::put('email', $admin->email);
                 Session::put('akses', $admin->akses);
                 Session::put('login', true);
-                // return view('home')->with('alert', 'login sukses');
-                echo '<script>console.log("Password Benar")</script>';
-
+                return view('index')->with('alert', 'login sukses');
             } else {
-                // return redirect('login')->with('alert', 'username atau password salah');
-                echo '<script>console.log("Tidak bisa")</script>';
+               return redirect('login')->with('alert', 'username atau password salah');
+            //    echo '<script>console.log("Tidak bisa")</script>';
+
             }
         }else{
             echo '<script>console.log("Email tidak bisa")</script>';
