@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'indexController@index');
-Route::get('/postjob', 'indexController@postjob');
+Route::get('/postjob', 'jobController@showPostJob');
 
 Route::get('/login', 'authController@getLogin');
 Route::post('/loginPost', 'authController@check_login');

@@ -12,11 +12,6 @@ class indexController extends Controller
     public function index(){
         return view('index');
     }
-    public function postjob(){
-        return view('post');
-    }
-
-
     public function store(Request $request)
     {
         $this->validate($request, [

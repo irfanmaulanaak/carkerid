@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\modelUser;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 use Response;
 use Auth;
 use SebastianBergmann\Environment\Console;
@@ -22,15 +23,16 @@ class authController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        $admin = modelUser::where('email', $email)->first();
+        $user = modelUser::where('email', $email)->first();
         echo '<script>console.log("Login Bisa 2")</script>';
 
-        if ($admin) {
-            if ($admin->password == $password) {
+        if ($user) {
+            if ($user->password == $password) {
                 echo '<script>console.log("Password ketemu")</script>';
-
-                Session::put('email', $admin->email);
-                Session::put('akses', $admin->akses);
+                Session::put('email', $user->email);
+                Session::put('akses', $user->akses);
+                Session::put('notelp', $user->noTelp);
+                Session::put('id', $user->id_user);
                 Session::put('login', true);
                 return redirect('home')->with('alert', 'login sukses');
             } else {
@@ -45,11 +47,26 @@ class authController extends Controller
         Session::flush();
         return redirect('home')->with('alert', 'log out sukses');
     }
-    public function getRegister(){
+    public function getRegister()
+    {
         return view('register');
     }
-    public function postRegister(Request $request){
-        echo 'Register';
+    public function postRegister(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirm' => 'required|same:password'
+        ]);
+        $data_regis = new modelUser();
+        $data_regis->username = $request->input('username');
+        $data_regis->nama = $request->input('nama');
+        $data_regis->email = $request->input('email');
+        $data_regis->noTelp = $request->input('notelp');
+        $data_regis->password = $request->input('password');
+        $data_regis->akses = $request->input('akses');
+        $data_regis->save();
+        return Redirect::to('/login');
     }
-
 }

@@ -54,10 +54,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="agileits-top">
 				<form action="{{url('/registerPost')}}" method="post">
 					@csrf
-					<input class="text" type="text" name="Username" placeholder="Username" required="">
+					<input class="text" type="text" name="username" placeholder="Username" required="">
+					<br>
+					<input class="text" type="text" name="nama" placeholder="Nama" required="">
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
+					<input class="text" type="text" name="notelp" placeholder="NoTelp" required="">
+					<br>
 					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+					<input class="text w3lpass" type="password" name="confirm" placeholder="Confirm Password" required="">
+					<input type="hidden" name="akses" value="user">
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">

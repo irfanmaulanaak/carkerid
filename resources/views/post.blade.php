@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Jobstart &mdash; Colorlib Website Template</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
-    <link rel="stylesheet" href="{{url('/')}}/fonts/icomoon/style.css">
+<head>
+  <title>Jobstart &mdash; Colorlib Website Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{{url('/')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/magnific-popup.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/jquery-ui.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/animate.css">
-    
-    
-    <link rel="stylesheet" href="{{url('/')}}/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="{{url('/')}}/css/fl-bigmug-line.css">
-  
-    <link rel="stylesheet" href="{{url('/')}}/css/aos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
+  <link rel="stylesheet" href="{{url('/')}}/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="{{url('/')}}/css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="{{url('/')}}/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/magnific-popup.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/jquery-ui.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/animate.css">
+
+
+  <link rel="stylesheet" href="{{url('/')}}/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="{{url('/')}}/css/fl-bigmug-line.css">
+
+  <link rel="stylesheet" href="{{url('/')}}/css/aos.css">
+
+  <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -37,13 +39,13 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
-    
-    
+
+
     <header class="site-navbar py-1" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
-          
+
           <div class="col-6 col-xl-2">
             <h1 class="mb-0"><a href="{{url('/home')}}" class="text-black h2 mb-0">Carker<strong>ID</strong></a></h1>
           </div>
@@ -65,20 +67,24 @@
                 </li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li class="active"><a href="contact.html">Contact</a></li>
+                <!-- Untuk Logout -->
+                <?php if (Session::get('login') == true) {
+                  ?>
+                  <li><a href="{{url('/logout')}}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Logout</span></a></li>
+                <?php } ?>
               </ul>
             </nav>
           </div>
 
           <div class="col-6 col-xl-2 text-right d-block">
-            
+
             <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
           </div>
 
         </div>
       </div>
-      
+
     </header>
 
     <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
@@ -87,86 +93,93 @@
         <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
       </div>
     </div>
-
-    
-    
-
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-       
           <div class="col-md-12 col-lg-8 mb-5">
-          
-            
-          
             <form action="#" class="p-5 bg-white">
-
+              <!-- Judul -->
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Job Title</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend">
+                  <input type="text" id="fullname" name="juduljob" class="form-control" placeholder="eg. Full Stack Frontend">
                 </div>
               </div>
+              <!-- Judul -->
 
+              <!-- Syarat -->
               <div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Company</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+                  <label class="font-weight-bold" for="fullname">Syarat</label>
+                  <input type="text" name="syarat" id="fullname" class="form-control" placeholder="Syarat">
                 </div>
               </div>
-
-
+              <!-- Syarat -->
+              <!-- Tipe-->
               <div class="row form-group">
-                <div class="col-md-12"><h3>Job Type</h3></div>
+                <div class="col-md-12">
+                  <h3>Job Type</h3>
+                </div>
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-job-type-1">
-                    <input type="radio" id="option-job-type-1" name="job-type"> Full Time
+                    <input type="radio" id="option-job-type-1" name="job-type" value="Full Time"> Full Time
                   </label>
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-job-type-2">
-                    <input type="radio" id="option-job-type-2" name="job-type"> Part Time
+                    <input type="radio" id="option-job-type-2" name="job-type" value="Part Time"> Part Time
                   </label>
                 </div>
 
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-job-type-3">
-                    <input type="radio" id="option-job-type-3" name="job-type"> Freelance
+                    <input type="radio" id="option-job-type-3" name="job-type" value="Freelance"> Freelance
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Internship
+                    <input type="radio" id="option-job-type-4" name="job-type" value="Internship"> Internship
                   </label>
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Termporary
+                    <input type="radio" id="option-job-type-4" name="job-type" value="Temporary"> Termporary
                   </label>
                 </div>
-
               </div>
-
+              <!-- Tipe-->
+              <!-- Lokasi-->
               <div class="row form-group mb-4">
-                <div class="col-md-12"><h3>Location</h3></div>
+                <div class="col-md-12">
+                  <h3>Location</h3>
+                </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <input type="text" class="form-control" placeholder="New York City">
+                  <input type="text" class="form-control" name="lokasi" placeholder="Lokasi pekerjaan">
                 </div>
               </div>
-
-              <div class="row form-group">
-                <div class="col-md-12"><h3>Job Description</h3></div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
-                </div>
-              </div>
-
+              <!-- Lokasi-->
+              <!-- Deskripsi-->
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+                  <h3>Job Description</h3>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <textarea name="deskripsi" class="form-control" id="" cols="30" rows="5"></textarea>
                 </div>
               </div>
+              <!-- Deskripsi-->
+              <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
+              <?php if (Session::get('akses') == 'admin') {
+                ?>
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+                  </div>
+                </div>
+              <?php } ?>
+              <!-- Akhir kodingan -->
 
-  
+
+
             </form>
           </div>
 
@@ -183,7 +196,7 @@
               <p class="mb-0"><a href="#">youremail@domain.com</a></p>
 
             </div>
-            
+
             <div class="p-4 mb-3 bg-white">
               <h3 class="h5 text-black mb-3">More Info</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
@@ -194,75 +207,75 @@
       </div>
     </div>
 
-   
+
 
 
     <div class="site-section">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-6" data-aos="fade" >
+          <div class="col-md-6" data-aos="fade">
             <h2>Frequently Ask Questions</h2>
           </div>
         </div>
-        
+
 
         <div class="row justify-content-center" data-aos="fade" data-aos-delay="100">
           <div class="col-md-8">
             <div class="accordion unit-8" id="accordion">
-            <div class="accordion-item">
-              <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">What is the name of your company<span class="icon"></span></a>
-              </h3>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="body-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quae cumque perspiciatis aperiam accusantium facilis provident aspernatur nisi optio debitis dolorum, est eum eligendi vero aut ad necessitatibus nulla sit labore doloremque magnam! Ex molestiae, dolor tempora, ad fuga minima enim mollitia consequuntur, necessitatibus praesentium eligendi officia recusandae culpa tempore eaque quasi ullam magnam modi quidem in amet. Quod debitis error placeat, tempore quasi aliquid eaque vel facilis culpa voluptate.</p>
+              <div class="accordion-item">
+                <h3 class="mb-0 heading">
+                  <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">What is the name of your company<span class="icon"></span></a>
+                </h3>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="body-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quae cumque perspiciatis aperiam accusantium facilis provident aspernatur nisi optio debitis dolorum, est eum eligendi vero aut ad necessitatibus nulla sit labore doloremque magnam! Ex molestiae, dolor tempora, ad fuga minima enim mollitia consequuntur, necessitatibus praesentium eligendi officia recusandae culpa tempore eaque quasi ullam magnam modi quidem in amet. Quod debitis error placeat, tempore quasi aliquid eaque vel facilis culpa voluptate.</p>
+                  </div>
                 </div>
-              </div>
-            </div> <!-- .accordion-item -->
-            
-            <div class="accordion-item">
-              <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">How much pay for 3  months?<span class="icon"></span></a>
-              </h3>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="body-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
-                </div>
-              </div>
-            </div> <!-- .accordion-item -->
+              </div> <!-- .accordion-item -->
 
-            <div class="accordion-item">
-              <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Do I need to register?  <span class="icon"></span></a>
-              </h3>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="body-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+              <div class="accordion-item">
+                <h3 class="mb-0 heading">
+                  <a class="btn-block" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">How much pay for 3 months?<span class="icon"></span></a>
+                </h3>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="body-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                  </div>
                 </div>
-              </div>
-            </div> <!-- .accordion-item -->
+              </div> <!-- .accordion-item -->
 
-            <div class="accordion-item">
-              <h3 class="mb-0 heading">
-                <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Who should I contact in case of support.<span class="icon"></span></a>
-              </h3>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="body-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+              <div class="accordion-item">
+                <h3 class="mb-0 heading">
+                  <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Do I need to register? <span class="icon"></span></a>
+                </h3>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="body-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                  </div>
                 </div>
-              </div>
-            </div> <!-- .accordion-item -->
+              </div> <!-- .accordion-item -->
 
-          </div>
+              <div class="accordion-item">
+                <h3 class="mb-0 heading">
+                  <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">Who should I contact in case of support.<span class="icon"></span></a>
+                </h3>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="body-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur! Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum, perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                  </div>
+                </div>
+              </div> <!-- .accordion-item -->
+
+            </div>
           </div>
         </div>
-      
+
       </div>
     </div>
 
-    
 
-    
+
+
     <div class="py-5 bg-primary">
       <div class="container">
         <div class="row">
@@ -275,7 +288,7 @@
             <input type="text" class="form-control border-0 mb-3 mb-md-0" placeholder="Enter Your Email">
           </div>
           <div class="col-md-3">
-            <input type="submit" value="Send" class="btn btn-dark btn-block" style="height: 45px;">  
+            <input type="submit" value="Send" class="btn btn-dark btn-block" style="height: 45px;">
           </div>
         </form>
       </div>
@@ -284,7 +297,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        
+
 
         <div class="row">
           <div class="col-lg-9">
@@ -349,18 +362,21 @@
                 info@yourdomain.com
               </li>
             </ul>
-            
+
           </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+              <script>
+                document.write(new Date().getFullYear());
+              </script> All Rights Reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -377,9 +393,10 @@
   <script src="{{url('/')}}/js/jquery.magnific-popup.min.js"></script>
   <script src="{{url('/')}}/js/bootstrap-datepicker.min.js"></script>
   <script src="{{url('/')}}/js/aos.js"></script>
-  
+
 
   <script src="{{url('/')}}/js/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>
