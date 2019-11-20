@@ -12,5 +12,5 @@ class modelUser extends Model
     public $timestamps = false;
     protected $fillable = ['username', 'nama', 'email', 'noTelp', 'password'];
 
-    protected $guarded = [];
+
 }
