@@ -11,7 +11,8 @@ use SebastianBergmann\Environment\Console;
 
 class authController extends Controller
 {
-    public function show(){
+    public function getLogin()
+    {
         return view('login');
     }
 
@@ -25,28 +26,18 @@ class authController extends Controller
         echo '<script>console.log("Login Bisa 2")</script>';
 
         if ($admin) {
-            echo '<script>console.log($admin)</script>';
-            $a = 123456;
-            $b = 1;
-            echo $admin->password == $password;
-            echo ($password == $admin->$password) == 1;
-        
-
             if ($admin->password == $password) {
                 echo '<script>console.log("Password ketemu")</script>';
 
                 Session::put('email', $admin->email);
                 Session::put('akses', $admin->akses);
                 Session::put('login', true);
-                return view('index')->with('alert', 'login sukses');
+                return redirect('home')->with('alert', 'login sukses');
             } else {
-               return redirect('login')->with('alert', 'username atau password salah');
-            //    echo '<script>console.log("Tidak bisa")</script>';
-
+                return redirect('login')->with('alert', 'username atau password salah');
             }
-        }else{
+        } else {
             echo '<script>console.log("Email tidak bisa")</script>';
-
         }
     }
     public function logout()
@@ -54,4 +45,11 @@ class authController extends Controller
         Session::flush();
         return redirect('home')->with('alert', 'log out sukses');
     }
+    public function getRegister(){
+        return view('register');
+    }
+    public function postRegister(Request $request){
+        
+    }
+
 }

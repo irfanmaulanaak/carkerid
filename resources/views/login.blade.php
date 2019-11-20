@@ -78,6 +78,11 @@
 							Login
 						</button>
 					</div>
+					<div class="container-login100-form-btn">
+						<a  href="{{url('/register')}}"> <button type="button" class="login100-form-btn">
+							Register
+						</button> </a>
+					</div>
 				</form>
 			</div>
 		</div>
