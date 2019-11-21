@@ -89,64 +89,128 @@
 
     <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
       <div class="container text-center">
-        <h2 class="mb-0">Post a Job</h2>
-        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+        <h2 class="mb-0">My CV</h2>
+        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>mycv</span></p>
       </div>
     </div>
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8 mb-5">
-            <form action="{{url('/cvpost')}}" method="get" class="p-5 bg-white">
-              @csrf
-              <!-- Data Akademik-->
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <h3>Data Akademik</h3>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="akademik" class="form-control" id="" cols="30" rows="5"></textarea>
-                </div>
-              </div>
-              <!-- Data Akademik-->
-              <!-- Organisasi-->
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <h3>Riwayat Organisasi</h3>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="organisasi" class="form-control" id="" cols="30" rows="5"></textarea>
-                </div>
-              </div>
-              <!-- Organisasi-->
-              <!-- Kemampuan-->
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <h3>Deskripsi Kemampuan</h3>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="kemampuan" class="form-control" id="" cols="30" rows="5"></textarea>
-                </div>
-              </div>
-              <!-- Kemampuan-->
-              <!-- Hidden-->
-              <input type="hidden" name="iduser" value="<?php echo Session::get('id'); ?>">
-              <input type="hidden" name="nama" value="<?php echo Session::get('nama'); ?>">
-              <!-- Hidden-->
-              <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
-              <?php if (Session::get('akses') == 'user') {
-                ?>
+
+            <!------------------------------------------------------------>
+            <?php if (Session::get('cvstat') == false) {
+              ?>
+              <!-- Form-->
+              <form action="{{url('/cvpost')}}" method="get" class="p-5 bg-white">
+                @csrf
+                <!-- Data Akademik-->
                 <div class="row form-group">
                   <div class="col-md-12">
-                    <input type="submit" value="Save" class="btn btn-primary  py-2 px-5">
+                    <h3>Data Akademik</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="akademik" class="form-control" id="" cols="30" rows="5"></textarea>
                   </div>
                 </div>
-              <?php } ?>
-              <!-- Akhir kodingan -->
+                <!-- Data Akademik-->
+                <!-- Organisasi-->
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <h3>Riwayat Organisasi</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="organisasi" class="form-control" id="" cols="30" rows="5"></textarea>
+                  </div>
+                </div>
+                <!-- Organisasi-->
+                <!-- Kemampuan-->
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <h3>Deskripsi Kemampuan</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="kemampuan" class="form-control" id="" cols="30" rows="5"></textarea>
+                  </div>
+                </div>
+                <!-- Kemampuan-->
+                <!-- Hidden-->
+                <input type="hidden" name="iduser" value="<?php echo Session::get('id'); ?>">
+                <input type="hidden" name="nama" value="<?php echo Session::get('nama'); ?>">
+                <!-- Hidden-->
+                <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
+                <?php if (Session::get('akses') == 'user') {
+                    ?>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <input type="submit" value="Save" class="btn btn-primary  py-2 px-5">
+                    </div>
+                  </div>
+                <?php } ?>
+                <!-- Akhir kodingan -->
+              </form>
+              <!-- Akhir Form-->
+            <?php } ?>
+            <!------------------------------------------------------------>
 
+            <!------------------------------------------------------------>
+            <?php if (Session::get('cvstat') == true) {
+              ?>
+              @foreach($cv as $c)
+              <!-- Form-->
+              <form action="{{url('/cvpost')}}" method="get" class="p-5 bg-white">
+                @csrf
+                <!-- Data Akademik-->
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <h3>Data Akademik</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="akademik" class="form-control" id="" cols="30" rows="5">{{$c->data_akademik}}</textarea>
+                  </div>
+                </div>
+                <!-- Data Akademik-->
+                <!-- Organisasi-->
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <h3>Riwayat Organisasi</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="organisasi" class="form-control" id="" cols="30" rows="5">{{$c->organisasi}}</textarea>
+                  </div>
+                </div>
+                <!-- Organisasi-->
+                <!-- Kemampuan-->
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <h3>Deskripsi Kemampuan</h3>
+                  </div>
+                  <div class="col-md-12 mb-3 mb-md-0">
+                    <textarea name="kemampuan" class="form-control" id="" cols="30" rows="5">{{$c->kemampuan}}</textarea>
+                  </div>
+                </div>
+                <!-- Kemampuan-->
+                <!-- Hidden-->
+                <input type="hidden" name="iduser" value="<?php echo Session::get('id'); ?>">
+                <input type="hidden" name="nama" value="<?php echo Session::get('nama'); ?>">
+                <!-- Hidden-->
+                <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
+                <?php if (Session::get('akses') == 'user') {
+                    ?>
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <input type="submit" value="Save" class="btn btn-primary  py-2 px-5">
+                    </div>
+                  </div>
+                <?php } ?>
+                <!-- Akhir kodingan -->
+              </form>
+              <!-- Akhir Form-->
+              @endforeach
+            <?php } ?>
 
+            <!------------------------------------------------------------>
 
-            </form>
           </div>
 
           <div class="col-lg-4">

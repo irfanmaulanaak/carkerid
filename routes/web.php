@@ -30,7 +30,5 @@ Route::get('/logout', 'authController@logout');
 
 Route::get('/jobpost', 'jobController@postJob');
 
-Route::get('/debug', 'cvController@debugdb');
-
 
 
