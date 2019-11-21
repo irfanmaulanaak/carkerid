@@ -181,7 +181,7 @@
       <div class="container">
         <div class="row justify-content-start text-left mb-5">
           <div class="col-md-9" data-aos="fade">
-            <h2 class="font-weight-bold text-black">Recent Jobs</h2>
+            <h2 class="font-weight-bold text-black">Recent Activity</h2>
           </div>
           <div class="col-md-3" data-aos="fade" data-aos-delay="200">
             <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
@@ -195,27 +195,39 @@
 
         <div class="row" data-aos="fade">
           <div class="col-md-12">
-
-            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-                <div class="job-post-item-header d-flex align-items-center">
-                  <h2 class="mr-3 text-black h4">Frontend Development</h2>
-                  <div class="badge-wrap">
-                    <span class="bg-primary text-white badge py-2 px-4">Partime</span>
+            <!-- cek apakah user -->
+            <?php if (Session::get('login') == false | Session::get('akses') == 'user') {
+              ?>
+              <!-- Looping-->
+              @foreach($pekerjaan as $p)
+              <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                <div class="mb-4 mb-md-0 mr-5">
+                  <div class="job-post-item-header d-flex align-items-center">
+                    <h2 class="mr-3 text-black h4">{{ $p->judul }}</h2>
+                    <div class="badge-wrap">
+                      <span class="bg-primary text-white badge py-2 px-4">{{ $p->kategori }}</span>
+                    </div>
+                  </div>
+                  <div class="job-post-item-body d-block d-md-flex">
+                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
+                    <div><span class="fl-bigmug-line-big104"></span> <span>{{ $p->lokasi }}</span></div>
                   </div>
                 </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                  <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
-                  <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-                </div>
+                <!-- apabila tidak sebagai user tidak bisa apply -->
+                <?php if (Session::get('login') == true) {
+                    ?>
+                  <div class="ml-auto">
+                    <a href="{{url('/')}}/pekerjaan/{{ $p->id_pekerjaan }}" class="btn btn-primary py-2">Apply Job</a>
+                  </div> <?php } ?>
+                <!-- apabila tidak sebagai user tidak bisa apply -->
               </div>
+              @endforeach
+              <!-- looping --> 
+              <?php } ?>
+            <!-- akhir pengecekan -->
 
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-            </div>
+
+
 
           </div>
         </div>

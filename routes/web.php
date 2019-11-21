@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::get('/home', 'indexController@index');
 Route::get('/postjob', 'jobController@showPostJob');
 
+Route::get('/pekerjaan/{id}','applyController@apply');
+
 Route::get('/login', 'authController@getLogin');
 Route::post('/loginPost', 'authController@check_login');
 Route::get('/register', 'authController@getRegister');
