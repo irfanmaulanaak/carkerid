@@ -25,9 +25,12 @@ Route::post('/loginPost', 'authController@check_login');
 Route::get('/register', 'authController@getRegister');
 Route::post('/registerPost', 'authController@postRegister');
 Route::get('/cv', 'cvController@show');
+Route::get('/cvpost', 'cvController@updatecv');
 Route::get('/logout', 'authController@logout');
 
 Route::get('/jobpost', 'jobController@postJob');
+
+Route::get('/debug', 'cvController@debugdb');
 
 
 

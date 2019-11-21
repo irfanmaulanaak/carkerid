@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\modelCV;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Redirect;
 
 class cvController extends Controller
 {
@@ -23,12 +23,20 @@ class cvController extends Controller
             'organisasi' => 'required',
             'kemampuan' => 'required',
         ]);
-        $cv = new modelCV;
+        $idexist = Session::get('id');
+        $cv = modelCV::where('id_user', $idexist)->first();
         $cv->nama = $request->input('nama');
-        $cv->data_akademik = $request->input('nama');
-        $cv->organisasi = $request->input('nama');
-        $cv->kemampuan = $request->input('nama');
-        $cv->id_user = $request->input('nama');
+        $cv->data_akademik = $request->input('akademik');
+        $cv->organisasi = $request->input('organisasi');
+        $cv->kemampuan = $request->input('kemampuan');
+        $cv->id_user = $request->input('iduser');
+        $cv->save();
+        return Redirect::to('/home');
+
+    }
+    public function debugdb(){
+        $idexist = Session::get('id');
+        $cv = modelCV::where('id_user', $idexist)->first();
     }
 
 }

@@ -130,17 +130,15 @@
               </div>
               <!-- Kemampuan-->
               <!-- Hidden-->
-              <input type="hidden" name="cp" value="<?php echo Session::get('notelp'); ?>">
-              <input type="hidden" name="email" value="<?php echo Session::get('email'); ?>">
               <input type="hidden" name="iduser" value="<?php echo Session::get('id'); ?>">
               <input type="hidden" name="nama" value="<?php echo Session::get('nama'); ?>">
               <!-- Hidden-->
               <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
-              <?php if (Session::get('akses') == 'admin') {
+              <?php if (Session::get('akses') == 'user') {
                 ?>
                 <div class="row form-group">
                   <div class="col-md-12">
-                    <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+                    <input type="submit" value="Save" class="btn btn-primary  py-2 px-5">
                   </div>
                 </div>
               <?php } ?>
