@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\modelUser;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-use Response;
-use Auth;
-use SebastianBergmann\Environment\Console;
+
 
 class authController extends Controller
 {

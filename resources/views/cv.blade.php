@@ -133,7 +133,7 @@
               <input type="hidden" name="cp" value="<?php echo Session::get('notelp'); ?>">
               <input type="hidden" name="email" value="<?php echo Session::get('email'); ?>">
               <input type="hidden" name="iduser" value="<?php echo Session::get('id'); ?>">
-              <input type="hidden" name="namaperusahaan" value="<?php echo Session::get('nama'); ?>">
+              <input type="hidden" name="nama" value="<?php echo Session::get('nama'); ?>">
               <!-- Hidden-->
               <!-- Kodingan Dibawah untuk mengecek apabila akses sebagai admin maka bisa post a job-->
               <?php if (Session::get('akses') == 'admin') {
