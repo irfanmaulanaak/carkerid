@@ -66,7 +66,10 @@
                 </li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">My CV</a></li>
+                <?php if (Session::get('akses') == 'user') {
+                  ?>
+                  <li><a href="{{url('/')}}/cv">My CV</a></li>
+                <?php } ?>
                 <!-- Untuk Login -->
                 <?php if (Session::get('login') == false) {
                   ?>
@@ -222,8 +225,8 @@
                 <!-- apabila tidak sebagai user tidak bisa apply -->
               </div>
               @endforeach
-              <!-- looping --> 
-              <?php } ?>
+              <!-- looping -->
+            <?php } ?>
             <!-- akhir pengecekan -->
 
 
