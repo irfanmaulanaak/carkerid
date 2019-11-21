@@ -11,6 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<title>Registration - CarkerID</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -22,6 +23,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 	<!-- Custom Theme files -->
 	<link href="{{url('/')}}/css/register.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="{{url('/')}}/css/aos.css">
+	<link rel="stylesheet" href="{{url('/')}}/css/style.css">
+	<link rel="stylesheet" href="{{url('/')}}/css/bootstrap.min.css">
 	<!-- //Custom Theme files -->
 	<!-- web font -->
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">

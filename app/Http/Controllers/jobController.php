@@ -11,6 +11,8 @@ class jobController extends Controller
     public function showPostJob()
     {
         return view('post');
+        // echo Session::get('login');
+        // echo Session::get('akses');
     }
     public function postJob(Request $request)
     {

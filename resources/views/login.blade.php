@@ -26,6 +26,9 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/util.css">
 	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/main.css">
+	<link rel="stylesheet" href="{{url('/')}}/css/aos.css">
+	<link rel="stylesheet" href="{{url('/')}}/css/style.css">
+	<link rel="stylesheet" href="{{url('/')}}/css/bootstrap.min.css">
 	<!--===============================================================================================-->
 </head>
 
