@@ -47,7 +47,7 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Job<strong>start</strong></a></h1>
+            <h1 class="mb-0"><a href="{{url('/')}}/home" class="text-black h2 mb-0">Carker<strong>ID</strong></a></h1>
           </div>
 
           <div class="col-10 col-xl-10 d-none d-xl-block">
@@ -74,7 +74,7 @@
       </div>
 
     </header>
-    
+
     <!-- awal konten -->
     @foreach($pekerjaan as $p)
     <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
@@ -96,7 +96,7 @@
                   </div>
                 </div>
                 <div class="job-post-item-body d-block d-md-flex">
-                  <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
+                  <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $p->nama_perusahaan }}</a></div>
                   <div><span class="fl-bigmug-line-big104"></span> <span>{{ $p->lokasi }}</span></div>
                 </div>
               </div>
@@ -106,6 +106,12 @@
           </div>
           <div class="col-lg-4">
             <div class="p-4 mb-3 bg-white">
+              <p class="mb-0 font-weight-bold">Phone</p>
+              <p class="mb-4"><a href="#">{{ $p->cp }}</a></p>
+
+              <p class="mb-0 font-weight-bold">Email Address</p>
+              <p class="mb-4"><a href="#">{{ $p->email }}</a></p>
+
               <h3 class="h5 text-black mb-3">Syarat</h3>
               <p>{{ $p->syarat }}</p>
               <p><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p>

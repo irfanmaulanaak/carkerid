@@ -31,6 +31,7 @@ class authController extends Controller
                 echo '<script>console.log("Password ketemu")</script>';
                 Session::put('email', $user->email);
                 Session::put('akses', $user->akses);
+                Session::put('nama', $user->nama);
                 Session::put('notelp', $user->noTelp);
                 Session::put('id', $user->id_user);
                 Session::put('login', true);

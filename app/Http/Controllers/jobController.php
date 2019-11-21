@@ -10,9 +10,12 @@ class jobController extends Controller
 {
     public function showPostJob()
     {
-        return view('post');
-        // echo Session::get('login');
-        // echo Session::get('akses');
+        if(Session::get('akses') == 'admin'){
+            return view('post');
+        }
+        else{
+            return redirect('home');
+        }
     }
     public function postJob(Request $request)
     {
@@ -33,6 +36,7 @@ class jobController extends Controller
         $pekerjaan->cp = $request->input('cp');
         $pekerjaan->email = $request->input('email');
         $pekerjaan->id_user = $request->input('iduser');
+        $pekerjaan->nama_perusahaan = $request->input('namaperusahaan');
         $pekerjaan->save();
         return redirect('/home')->with('success', 'Post Updated');
     }

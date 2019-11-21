@@ -66,7 +66,7 @@
                 </li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">My CV</a></li>
                 <!-- Untuk Login -->
                 <?php if (Session::get('login') == false) {
                   ?>
@@ -209,7 +209,7 @@
                     </div>
                   </div>
                   <div class="job-post-item-body d-block d-md-flex">
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
+                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $p->nama_perusahaan }}</a></div>
                     <div><span class="fl-bigmug-line-big104"></span> <span>{{ $p->lokasi }}</span></div>
                   </div>
                 </div>
@@ -530,7 +530,7 @@
                   <li><a href="#">Find Jobs</a></li>
                   <li><a href="#">News</a></li>
                   <li><a href="#">Search Jobs</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">My CV</a></li>
                   <li><a href="#">Careers</a></li>
                 </ul>
               </div>
