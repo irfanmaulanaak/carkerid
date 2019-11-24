@@ -198,7 +198,7 @@
 
         <div class="row" data-aos="fade">
           <div class="col-md-12">
-            
+
             <!-- cek apakah user -->
             <?php if (Session::get('login') == false | Session::get('akses') == 'user') {
               ?>
@@ -224,6 +224,33 @@
                     <a href="{{url('/')}}/pekerjaan/{{ $p->id_pekerjaan }}" class="btn btn-primary py-2">Apply Job</a>
                   </div> <?php } ?>
                 <!-- apabila tidak sebagai user tidak bisa apply -->
+              </div>
+              @endforeach
+              <!-- looping -->
+            <?php } ?>
+            <!-- akhir pengecekan -->
+
+            <!-- cek apakah admin -->
+            <?php if (Session::get('akses') == 'admin') {
+              ?>
+              <!-- Looping-->
+              @foreach($lamaran as $l)
+              <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                <div class="mb-4 mb-md-0 mr-5">
+                  <div class="job-post-item-header d-flex align-items-center">
+                    <h2 class="mr-3 text-black h4">{{ $l->judul }}</h2>
+                    <div class="badge-wrap">
+                      <span class="bg-primary text-white badge py-2 px-4">{{ $l->kategori }}</span>
+                    </div>
+                  </div>
+                  <div class="job-post-item-body d-block d-md-flex">
+                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $l->nama }}</a></div>
+                    <div><span class="fl-bigmug-line-big104"></span> <span>{{ $l->lokasi }}</span></div>
+                  </div>
+                </div>
+                <div class="ml-auto">
+                  <a href="{{url('/')}}/lamaran/{{ $l->id_lamaran }}" class="btn btn-primary py-2">Lihat</a>
+                </div>
               </div>
               @endforeach
               <!-- looping -->
@@ -383,7 +410,7 @@
 
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-6" data-aos="fade">
-            <h2 class="text-black">Happy Employers</h2>
+            <h2 class="text-black">Team</h2>
           </div>
         </div>
 
@@ -394,8 +421,8 @@
               <div class="block-38-img">
                 <div class="block-38-header">
                   <img src="images/person_1.jpg" alt="Image placeholder">
-                  <h3 class="block-38-heading">Elizabeth Graham</h3>
-                  <p class="block-38-subheading">Creative Director, XYG Company</p>
+                  <h3 class="block-38-heading">Irfan Maulana Akbar</h3>
+                  <p class="block-38-subheading">Programmer</p>
                 </div>
                 <div class="block-38-body">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
@@ -409,8 +436,8 @@
               <div class="block-38-img">
                 <div class="block-38-header">
                   <img src="images/person_2.jpg" alt="Image placeholder">
-                  <h3 class="block-38-heading">Jennifer Greive</h3>
-                  <p class="block-38-subheading">Lead Designer, Mig Company</p>
+                  <h3 class="block-38-heading">Alvin Tarissa</h3>
+                  <p class="block-38-subheading">System Analist</p>
                 </div>
                 <div class="block-38-body">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
@@ -425,8 +452,8 @@
               <div class="block-38-img">
                 <div class="block-38-header">
                   <img src="images/person_1.jpg" alt="Image placeholder">
-                  <h3 class="block-38-heading">Elizabeth Graham</h3>
-                  <p class="block-38-subheading">Creative Director, XYG Company</p>
+                  <h3 class="block-38-heading">Yudha Irwan</h3>
+                  <p class="block-38-subheading">?????</p>
                 </div>
                 <div class="block-38-body">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
@@ -440,8 +467,8 @@
               <div class="block-38-img">
                 <div class="block-38-header">
                   <img src="images/person_2.jpg" alt="Image placeholder">
-                  <h3 class="block-38-heading">Jennifer Greive</h3>
-                  <p class="block-38-subheading">Lead Designer, Mig Company</p>
+                  <h3 class="block-38-heading">Brillian</h3>
+                  <p class="block-38-subheading">Tester</p>
                 </div>
                 <div class="block-38-body">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
@@ -582,7 +609,7 @@
               </li>
               <li>
                 <span class="d-block text-white">Email</span>
-                info@yourdomain.com
+                irfanmaulana@student.ub.ac.id
               </li>
             </ul>
 

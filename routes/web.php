@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::get('/home', 'indexController@index');
 Route::get('/postjob', 'jobController@showPostJob');
 
-Route::get('/pekerjaan/{id}','applyController@apply');
+Route::get('/pekerjaan/{id}','applyController@viewjob');
+
+Route::get('/lamaran/{id}','applyController@viewlamaran');
 
 Route::get('/melamar','jobController@lamar');
 
