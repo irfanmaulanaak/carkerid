@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'indexController@index');
+
 Route::get('/postjob', 'jobController@showPostJob');
 
 Route::get('/pekerjaan/{id}','applyController@viewjob');
@@ -26,10 +27,13 @@ Route::get('/melamar','jobController@lamar');
 
 Route::get('/login', 'authController@getLogin');
 Route::post('/loginPost', 'authController@check_login');
+
 Route::get('/register', 'authController@getRegister');
 Route::post('/registerPost', 'authController@postRegister');
+
 Route::get('/cv', 'cvController@show');
 Route::get('/cvpost', 'cvController@updatecv');
+
 Route::get('/logout', 'authController@logout');
 
 Route::get('/jobpost', 'jobController@postJob');

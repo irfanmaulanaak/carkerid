@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\modelLamaran;
-use Illuminate\Http\Request;
 use App\modelPekerjaan;
 use Illuminate\Support\Facades\DB;
 use Session;
