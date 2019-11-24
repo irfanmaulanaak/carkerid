@@ -407,16 +407,13 @@
     <div class="site-section block-4 bg-light">
 
       <div class="container">
-
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-6" data-aos="fade">
             <h2 class="text-black">Team</h2>
           </div>
         </div>
-
         <div class="nonloop-block-4 owl-carousel" data-aos="fade">
           <div class="item col-md-8 mx-auto">
-
             <div class="block-38 text-center bg-white p-4">
               <div class="block-38-img">
                 <div class="block-38-header">
@@ -467,7 +464,7 @@
               <div class="block-38-img">
                 <div class="block-38-header">
                   <img src="images/person_2.jpg" alt="Image placeholder">
-                  <h3 class="block-38-heading">Brillian</h3>
+                  <h3 class="block-38-heading">Brillian Ghulam Ash Shidiq </h3>
                   <p class="block-38-subheading">Tester</p>
                 </div>
                 <div class="block-38-body">
