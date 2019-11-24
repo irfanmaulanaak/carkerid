@@ -20,6 +20,8 @@ Route::get('/postjob', 'jobController@showPostJob');
 
 Route::get('/pekerjaan/{id}','applyController@apply');
 
+Route::get('/melamar','jobController@lamar');
+
 Route::get('/login', 'authController@getLogin');
 Route::post('/loginPost', 'authController@check_login');
 Route::get('/register', 'authController@getRegister');
@@ -29,6 +31,7 @@ Route::get('/cvpost', 'cvController@updatecv');
 Route::get('/logout', 'authController@logout');
 
 Route::get('/jobpost', 'jobController@postJob');
+
 
 
 

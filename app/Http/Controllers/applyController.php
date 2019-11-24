@@ -19,4 +19,5 @@ class applyController extends Controller
             return view('applyjob', ['pekerjaan' => $pekerjaan]);
         }
     }
+    
 }

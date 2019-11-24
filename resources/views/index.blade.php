@@ -198,6 +198,7 @@
 
         <div class="row" data-aos="fade">
           <div class="col-md-12">
+            
             <!-- cek apakah user -->
             <?php if (Session::get('login') == false | Session::get('akses') == 'user') {
               ?>
@@ -228,8 +229,6 @@
               <!-- looping -->
             <?php } ?>
             <!-- akhir pengecekan -->
-
-
 
 
           </div>

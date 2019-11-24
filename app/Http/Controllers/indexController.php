@@ -13,6 +13,7 @@ class indexController extends Controller
         $pekerjaan = new modelPekerjaan();
         $pekerjaan = DB::table('pekerjaan')->get();
         return view('index',['pekerjaan' => $pekerjaan]);
+        
     }
     // public function getListJob(){
     //     $listjob = DB::table('pekerjaan')->get();

@@ -76,51 +76,57 @@
     </header>
 
     <!-- awal konten -->
-    @foreach($pekerjaan as $p)
-    <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
-      <div class="container text-center">
-        <h2 class="mb-0">{{ $p->judul }}</h2>
-        <!-- <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Job Item</span></p> -->
+    <form action="{{url('/melamar')}}" method="get">
+      @csrf
+      @foreach($pekerjaan as $p)
+      <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
+        <div class="container text-center">
+          <h2 class="mb-0">{{ $p->judul }}</h2>
+        </div>
       </div>
-    </div>
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8 mb-5">
-            <div class="p-5 bg-white">
-              <div class="mb-4 mb-md-5 mr-5">
-                <div class="job-post-item-header d-flex align-items-center">
-                  <h2 class="mr-3 text-black h4">{{ $p->judul }}</h2>
-                  <div class="badge-wrap">
-                    <span class="bg-danger text-white badge py-2 px-4">{{ $p->kategori }}</span>
+      <div class="site-section bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-8 mb-5">
+              <div class="p-5 bg-white">
+                <div class="mb-4 mb-md-5 mr-5">
+                  <div class="job-post-item-header d-flex align-items-center">
+                    <h2 class="mr-3 text-black h4">{{ $p->judul }}</h2>
+                    <input type="hidden" name="judul" value="{{ $p-> judul }}">
+                    <div class="badge-wrap">
+                      <span class="bg-danger text-white badge py-2 px-4">{{ $p->kategori }}</span>
+                      <input type="hidden" name="kategori" value="{{ $p-> kategori }}">
+                    </div>
+                  </div>
+                  <div class="job-post-item-body d-block d-md-flex">
+                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $p->nama_perusahaan }}</a></div>
+                    <div><span class="fl-bigmug-line-big104"></span> <span>{{ $p->lokasi }}</span></div>
+                    <input type="hidden" name="lokasi" value="{{ $p->lokasi }}">
+                    <input type="hidden" name="idperusahaan" value="{{ $p->id_user }}">
                   </div>
                 </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                  <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $p->nama_perusahaan }}</a></div>
-                  <div><span class="fl-bigmug-line-big104"></span> <span>{{ $p->lokasi }}</span></div>
-                </div>
+                <p>{{ $p->deskripsi }}</p>
               </div>
-              <p>{{ $p->deskripsi }}</p>
-              <p class="mt-5"><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p>
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="p-4 mb-3 bg-white">
-              <p class="mb-0 font-weight-bold">Phone</p>
-              <p class="mb-4"><a href="#">{{ $p->cp }}</a></p>
+            <div class="col-lg-4">
+              <div class="p-4 mb-3 bg-white">
+                <p class="mb-0 font-weight-bold">Phone</p>
+                <p class="mb-4"><a href="#">{{ $p->cp }}</a></p>
 
-              <p class="mb-0 font-weight-bold">Email Address</p>
-              <p class="mb-4"><a href="#">{{ $p->email }}</a></p>
+                <p class="mb-0 font-weight-bold">Email Address</p>
+                <p class="mb-4"><a href="#">{{ $p->email }}</a></p>
 
-              <h3 class="h5 text-black mb-3">Syarat</h3>
-              <p>{{ $p->syarat }}</p>
-              <p><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p>
+                <h3 class="h5 text-black mb-3">Syarat</h3>
+                <p>{{ $p->syarat }}</p>
+                <input type="submit" class="btn btn-primary  py-2 px-4" value="Apply Job">
+                <!-- <p><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    @endforeach
+      @endforeach
+    </form>
     <!-- akhir konten -->
 
     <div class="site-section">
